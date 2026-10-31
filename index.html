@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Домашняя библиотека</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; display: flex; gap: 40px; }
+    .form-section { width: 300px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; height: fit-content; }
+    .lists-section { flex-grow: 1; display: flex; gap: 20px; }
+    .list-container { border: 1px solid #ddd; padding: 15px; border-radius: 5px; width: 50%; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; margin-bottom: 4px; font-weight: bold; }
+    .form-group input, .form-group select { width: 100%; padding: 6px; box-sizing: border-box; }
+    button { padding: 8px 12px; cursor: pointer; margin-right: 5px; }
+    .category-item { padding: 8px; border: 1px solid #eee; margin-bottom: 5px; cursor: pointer; border-radius: 4px; }
+    .category-item.active { background-color: #007bff; color: white; border-color: #0056b3; }
+    .book-item { padding: 10px; border: 1px solid #eee; margin-bottom: 8px; border-radius: 4px; background: #f9f9f9; }
+    .book-actions { margin-top: 8px; }
+  </style>
+</head>
+<body>
+
+  <div class="form-section">
+    <h3 id="form-title">Добавить книгу</h3>
+    <form id="book-form">
+      <input type="hidden" id="book-id">
+      <div class="form-group">
+        <label for="book-title">Название</label>
+        <input type="text" id="book-title" required>
+      </div>
+      <div class="form-group">
+        <label for="book-author">Автор</label>
+        <input type="text" id="book-author" required>
+      </div>
+      <div class="form-group">
+        <label for="book-category">Категория</label>
+        <select id="book-category" required></select>
+      </div>
+      <button type="submit" id="submit-btn">Сохранить</button>
+      <button type="button" id="cancel-btn" style="display: none;">Отмена</button>
+    </form>
+  </div>
+
+  <div class="lists-section">
+    <div class="list-container">
+      <h3>Категории</h3>
+      <div id="categories-list"></div>
+    </div>
+    
+    <div class="list-container">
+      <h3>Книги в категории</h3>
+      <div id="books-list"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
